@@ -2,6 +2,7 @@ package cn.zx.jiaochengdemo.user.controller;
 
 import cn.zx.jiaochengdemo.user.entity.UserEntity;
 import cn.zx.jiaochengdemo.user.service.UserService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +39,19 @@ public class UserController {
     @ResponseBody
     public String save(@RequestBody UserEntity userEntity){
         userService.save(userEntity);
+        return "success";
+    }
+    //根据id查询用户信息
+    @RequestMapping("/getUserById")
+    @ResponseBody
+    public UserEntity getUserById(Integer id){
+        return userService.getUserById(id);
+    }
+    @RequestMapping("/updateUserById")
+    @ResponseBody
+    public String updateUserById(@RequestBody UserEntity userEntity){
+        System.out.println(1111);
+        userService.updateUserById(userEntity);
         return "success";
     }
 }

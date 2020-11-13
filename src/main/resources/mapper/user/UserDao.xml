@@ -30,4 +30,15 @@ VALUES
 
 
     </insert>
+
+	<select id="getUserById" parameterType="java.lang.Integer" resultType="cn.zx.jiaochengdemo.user.entity.UserEntity">
+		select * from user where id=${id}
+	</select>
+
+	<update id="updateUserById" parameterType="cn.zx.jiaochengdemo.user.entity.UserEntity">
+		update user
+		set username=#{username},password=#{password}
+		where id=${id}
+	</update>
+
 </mapper>
